@@ -22,9 +22,10 @@
 # build nistcd library (a.k.a., "cd" library put into the public domain by
 # NIST) required by the PLplot cgm device.
 if(PLD_cgm)
-  include_directories(
-  ${CMAKE_CURRENT_SOURCE_DIR}
-  )
+  # include_directories(
+  # ${CMAKE_CURRENT_SOURCE_DIR}
+  # )
+
 
   set( cd_LIB_SRCS cd.c )
   set( cd_LIB_HDRS cd.h defines.h )
@@ -42,6 +43,10 @@ if(PLD_cgm)
     )
 
   add_library( nistcd ${cd_LIB_SRCS} )
+  target_include_directories(nistcd PUBLIC 
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
+    $<INSTALL_INTERFACE:include>
+  )
   set_library_properties(nistcd)
 
   option(TEST_NISTCD "Test libnistcd" ON)

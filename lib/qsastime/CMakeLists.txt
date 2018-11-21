@@ -32,10 +32,10 @@ configure_file(
   ${CMAKE_CURRENT_BINARY_DIR}/qsastimeP.h
   )
 
-include_directories(
-  ${CMAKE_CURRENT_SOURCE_DIR}
-  ${CMAKE_CURRENT_BINARY_DIR}
-  )
+# include_directories(
+#   ${CMAKE_CURRENT_SOURCE_DIR}
+#   ${CMAKE_CURRENT_BINARY_DIR}
+#   )
 
 # Routine for generating a header containing data to be used by the
 # TAI-UTC transformation code.
@@ -90,7 +90,14 @@ set(qsastime_LIB_SRCS
   )
 
 add_library(qsastime ${qsastime_LIB_SRCS})
+target_include_directories(qsastime PUBLIC 
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>
+  $<INSTALL_INTERFACE:include>
+)
+
 add_dependencies(qsastime tai-utc.h_built deltaT.h_built)
+
 
 if(MATH_LIB)
   if(NON_TRANSITIVE)

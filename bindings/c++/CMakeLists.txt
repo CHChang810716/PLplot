@@ -34,16 +34,13 @@ if(ENABLE_cxx)
 
   # Set the include path
   target_include_directories(plplotcxx PUBLIC 
-    $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/include;${CMAKE_BINARY_DIR};${CMAKE_BINARY_DIR}/include>
+    $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/include> 
+    $<BUILD_INTERFACE:${CMAKE_BINARY_DIR}/include> 
+    $<BUILD_INTERFACE:${CMAKE_BINARY_DIR}> 
     $<INSTALL_INTERFACE:include>
   )
 
-  if(NON_TRANSITIVE)
-    target_link_libraries(plplotcxx PRIVATE plplot)
-  else(NON_TRANSITIVE)
-    target_link_libraries(plplotcxx PUBLIC plplot)
-  endif(NON_TRANSITIVE)
-
+  target_link_libraries(plplotcxx PUBLIC plplot)
   if(USE_RPATH)
     get_target_property(LIB_INSTALL_RPATH plplot INSTALL_RPATH)
   endif(USE_RPATH)

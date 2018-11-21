@@ -342,10 +342,17 @@ install(TARGETS plplot
 # This exports information for every target in the whole build that
 # has the EXPORT export_plplot signature (as above) for the
 # install(TARGETS ... # command.
-install(EXPORT export_plplot DESTINATION ${LIB_DIR}/cmake/plplot)
+install(
+  EXPORT export_plplot 
+  NAMESPACE "plplot"
+  DESTINATION ${LIB_DIR}/cmake/plplot)
 
 # Install associated CMake package config file.
-
+configure_package_config_file(
+  "plplotConfig.cmake.in"
+  "plplotCOnfig.cmake"
+  INSTALL_DESTINATION "${LIB_DIR}/cmake/plplot"
+)
 install(FILES plplotConfig.cmake DESTINATION ${LIB_DIR}/cmake/plplot)
 
 message("pc_libplplot_LINK_FLAGS = ${pc_libplplot_LINK_FLAGS}")

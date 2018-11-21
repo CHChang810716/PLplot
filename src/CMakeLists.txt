@@ -172,13 +172,13 @@ if(NOT ENABLE_DYNDRIVERS)
   endforeach(SOURCE_ROOT_NAME ${DRIVERS_LIST})
 endif(NOT ENABLE_DYNDRIVERS)
 
-include_directories(
-  ${CMAKE_SOURCE_DIR}/include
-  ${CMAKE_SOURCE_DIR}/lib/qsastime
-  ${CMAKE_BINARY_DIR}
-  ${CMAKE_BINARY_DIR}/include
-  )
 add_library(plplot ${plplot_LIB_SRCS})
+target_include_directories(plplot PUBLIC
+    $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/include>
+    $<BUILD_INTERFACE:${CMAKE_BINARY_DIR}/include>
+    $<BUILD_INTERFACE:${CMAKE_BINARY_DIR}>
+    $<INSTALL_INTERFACE:include>
+)
 add_dependencies(plplot plhershey-unicode.h_built)
 
 # Deal with external libraries.

@@ -93,7 +93,7 @@ add_library(qsastime ${qsastime_LIB_SRCS})
 target_include_directories(qsastime PUBLIC 
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
   $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>
-  $<INSTALL_INTERFACE:include>
+  $<INSTALL_INTERFACE:${INCLUDE_DIR}>
 )
 
 add_dependencies(qsastime tai-utc.h_built deltaT.h_built)

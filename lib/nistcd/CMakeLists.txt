@@ -45,7 +45,7 @@ if(PLD_cgm)
   add_library( nistcd ${cd_LIB_SRCS} )
   target_include_directories(nistcd PUBLIC 
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
-    $<INSTALL_INTERFACE:include>
+    $<INSTALL_INTERFACE:${INCLUDE_DIR}>
   )
   set_library_properties(nistcd)
 

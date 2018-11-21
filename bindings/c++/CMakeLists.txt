@@ -29,15 +29,14 @@ if(ENABLE_cxx)
     plstream.h
     )
 
-  # Set the include path
-  include_directories(
-    ${CMAKE_SOURCE_DIR}/include
-    ${CMAKE_BINARY_DIR}
-    ${CMAKE_BINARY_DIR}/include
-    )
-
   # Create plplotcxx[d] library
   add_library(plplotcxx ${plplotcxx_LIB_SRCS})
+
+  # Set the include path
+  target_include_directories(plplotcxx PUBLIC 
+    $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/include;${CMAKE_BINARY_DIR};${CMAKE_BINARY_DIR}/include>
+    $<INSTALL_INTERFACE:include>
+  )
 
   if(NON_TRANSITIVE)
     target_link_libraries(plplotcxx PRIVATE plplot)

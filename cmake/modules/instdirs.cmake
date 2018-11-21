@@ -34,6 +34,7 @@
 # locations below (without the CMAKE_INSTALL prefix) that are directly
 # used for installations.
 
+include(GNUInstallDirs)
 set(INSTALL_LOCATION_VARIABLES_LIST)
 set(
   CMAKE_INSTALL_EXEC_PREFIX
@@ -42,52 +43,52 @@ set(
   )
 list(APPEND INSTALL_LOCATION_VARIABLES_LIST CMAKE_INSTALL_EXEC_PREFIX)
 
-set(
-  CMAKE_INSTALL_BINDIR
-  ${CMAKE_INSTALL_EXEC_PREFIX}/bin
-  CACHE PATH "General install location for user executables"
-  )
+# set(
+#   CMAKE_INSTALL_BINDIR
+#   ${CMAKE_INSTALL_EXEC_PREFIX}/bin
+#   CACHE PATH "General install location for user executables"
+#   )
 list(APPEND INSTALL_LOCATION_VARIABLES_LIST CMAKE_INSTALL_BINDIR)
 
-set(
-  CMAKE_INSTALL_DATADIR
-  ${CMAKE_INSTALL_PREFIX}/share
-  CACHE PATH "General install location for read-only architecture-independent data"
-  )
+# set(
+#   CMAKE_INSTALL_DATADIR
+#   ${CMAKE_INSTALL_PREFIX}/share
+#   CACHE PATH "General install location for read-only architecture-independent data"
+#   )
 list(APPEND INSTALL_LOCATION_VARIABLES_LIST CMAKE_INSTALL_DATADIR)
 
-set(
-  CMAKE_INSTALL_LIBDIR
-  ${CMAKE_INSTALL_EXEC_PREFIX}/lib
-  CACHE PATH "General install location for object code libraries"
-  )
+# set(
+#   CMAKE_INSTALL_LIBDIR
+#   ${CMAKE_INSTALL_EXEC_PREFIX}/lib
+#   CACHE PATH "General install location for object code libraries"
+#   )
 list(APPEND INSTALL_LOCATION_VARIABLES_LIST CMAKE_INSTALL_LIBDIR)
 
-set(
-  CMAKE_INSTALL_INCLUDEDIR
-  ${CMAKE_INSTALL_PREFIX}/include
-  CACHE PATH "General install location for C header files"
-  )
+# set(
+#   CMAKE_INSTALL_INCLUDEDIR
+#   ${CMAKE_INSTALL_PREFIX}/include
+#   CACHE PATH "General install location for C header files"
+#   )
 list(APPEND INSTALL_LOCATION_VARIABLES_LIST CMAKE_INSTALL_INCLUDEDIR)
 
-set(
-  CMAKE_INSTALL_INFODIR
-  ${CMAKE_INSTALL_DATADIR}/info
-  CACHE PATH "General install location for info documentation"
-  )
+# set(
+#   CMAKE_INSTALL_INFODIR
+#   ${CMAKE_INSTALL_DATADIR}/info
+#   CACHE PATH "General install location for info documentation"
+#   )
 list(APPEND INSTALL_LOCATION_VARIABLES_LIST CMAKE_INSTALL_INFODIR)
 
-set(
-  CMAKE_INSTALL_MANDIR
-  ${CMAKE_INSTALL_DATADIR}/man
-  CACHE PATH "General install location for man documentation"
-  )
+# set(
+#   CMAKE_INSTALL_MANDIR
+#   ${CMAKE_INSTALL_DATADIR}/man
+#   CACHE PATH "General install location for man documentation"
+#   )
 list(APPEND INSTALL_LOCATION_VARIABLES_LIST CMAKE_INSTALL_MANDIR)
 
 set(
   CMAKE_INSTALL_PKG_CONFIG_DIR
   ${CMAKE_INSTALL_LIBDIR}/pkgconfig
-  CACHE PATH "General install location for pkg-config *.pc files"
+  # CACHE PATH "General install location for pkg-config *.pc files"
   )
 list(APPEND INSTALL_LOCATION_VARIABLES_LIST CMAKE_INSTALL_PKG_CONFIG_DIR)
 
@@ -100,56 +101,56 @@ list(APPEND INSTALL_LOCATION_VARIABLES_LIST CMAKE_INSTALL_PKG_CONFIG_DIR)
 set(
   DATA_DIR
   ${CMAKE_INSTALL_DATADIR}/${PACKAGE}${PLPLOT_VERSION}
-  CACHE PATH "PLplot install location for architecture-independent data"
+  # CACHE PATH "PLplot install location for architecture-independent data"
   )
 list(APPEND INSTALL_LOCATION_VARIABLES_LIST DATA_DIR)
 
 set(
   LIB_DIR
   ${CMAKE_INSTALL_LIBDIR}
-  CACHE PATH "PLplot install location for object code libraries"
+  # CACHE PATH "PLplot install location for object code libraries"
   )
 list(APPEND INSTALL_LOCATION_VARIABLES_LIST LIB_DIR)
 
 set(
   INCLUDE_DIR
   ${CMAKE_INSTALL_INCLUDEDIR}/${PACKAGE}
-  CACHE PATH "PLplot install location for C header files"
+  # CACHE PATH "PLplot install location for C header files"
   )
 list(APPEND INSTALL_LOCATION_VARIABLES_LIST INCLUDE_DIR)
 
 set(
   BIN_DIR
   ${CMAKE_INSTALL_BINDIR}
-  CACHE PATH "PLplot install location for user executables"
+  # CACHE PATH "PLplot install location for user executables"
   )
 list(APPEND INSTALL_LOCATION_VARIABLES_LIST BIN_DIR)
 
 set(
   DRV_DIR
   ${CMAKE_INSTALL_LIBDIR}/${PACKAGE}${PLPLOT_VERSION}/drivers
-  CACHE PATH "PLplot install location for dynamically loaded devices"
+  # CACHE PATH "PLplot install location for dynamically loaded devices"
   )
 list(APPEND INSTALL_LOCATION_VARIABLES_LIST DRV_DIR)
 
 set(
   DOC_DIR
   ${CMAKE_INSTALL_DATADIR}/doc/${PACKAGE}
-  CACHE PATH "PLplot install location for (architecture-independent) documentation files"
+  # CACHE PATH "PLplot install location for (architecture-independent) documentation files"
   )
 list(APPEND INSTALL_LOCATION_VARIABLES_LIST DOC_DIR)
 
 set(
   INFO_DIR
   ${CMAKE_INSTALL_INFODIR}
-  CACHE PATH "PLplot install location for (architecture-independent) info files"
+  # CACHE PATH "PLplot install location for (architecture-independent) info files"
   )
 list(APPEND INSTALL_LOCATION_VARIABLES_LIST INFO_DIR)
 
 set(
   MAN_DIR
   ${CMAKE_INSTALL_MANDIR}
-  CACHE PATH "PLplot install location for (architecture-independent) man files"
+  # CACHE PATH "PLplot install location for (architecture-independent) man files"
   )
 list(APPEND INSTALL_LOCATION_VARIABLES_LIST MAN_DIR)
 

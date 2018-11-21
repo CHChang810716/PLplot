@@ -331,6 +331,7 @@ if(NOT ENABLE_DYNDRIVERS AND ANY_QT_DEVICE)
     # the target.
     target_include_directories(plplot PRIVATE ${CMAKE_CURRENT_BINARY_DIR})
 endif(NOT ENABLE_DYNDRIVERS AND ANY_QT_DEVICE)
+include(CMakePackageConfigHelpers)
 
 install(TARGETS plplot
   EXPORT export_plplot
@@ -344,16 +345,16 @@ install(TARGETS plplot
 # install(TARGETS ... # command.
 install(
   EXPORT export_plplot 
-  NAMESPACE "plplot"
+  NAMESPACE "PLPLOT::"
   DESTINATION ${LIB_DIR}/cmake/plplot)
 
 # Install associated CMake package config file.
 configure_package_config_file(
   "plplotConfig.cmake.in"
-  "plplotCOnfig.cmake"
+  "plplotConfig.cmake"
   INSTALL_DESTINATION "${LIB_DIR}/cmake/plplot"
 )
-install(FILES plplotConfig.cmake DESTINATION ${LIB_DIR}/cmake/plplot)
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/plplotConfig.cmake DESTINATION ${LIB_DIR}/cmake/plplot)
 
 message("pc_libplplot_LINK_FLAGS = ${pc_libplplot_LINK_FLAGS}")
 
